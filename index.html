@@ -3,326 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ARC4 Gestão de Ativos S.A. - Atendimento, 2ª via de boleto, renegociação de dívidas e suporte especializado.">
-    <title>ARC4 Gestão de Ativos | Atendimento e Negociação</title>
+    <title>ARC4 Gestão de Ativos | Renegocie sua Dívida</title>
+    <meta name="description" content="Atendimento ARC4 - 2ª via de boleto, renegociação e regularização de dívidas.">
     
     <!-- Favicon -->
     <link rel="icon" href="https://www.arc4.com.br/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="https://www.arc4.com.br/favicon.ico" type="image/x-icon">
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         
         :root {
             --primary: #003087;
-            --accent: #00b140;
+            --green: #00b140;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Inter', system-ui, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f8f9fa;
         }
         
         header {
-            background: linear-gradient(135deg, var(--primary), #001f5e);
-            color: white;
-            padding: 1rem 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         
-        .container {
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo img {
+            height: 65px;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #003087 0%, #001f5e 100%);
+            color: white;
+            text-align: center;
+            padding: 120px 20px 80px;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: white;
-            font-weight: 700;
-            font-size: 1.8rem;
-        }
-        
-        .logo img {
-            height: 60px;
-        }
-        
-        .hero {
-            background: linear-gradient(rgba(0, 48, 135, 0.85), rgba(0, 48, 135, 0.85)), url('https://picsum.photos/id/1015/1920/600') center/cover;
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 14px 32px;
-            background-color: var(--accent);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            margin: 8px;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 177, 64, 0.3);
-        }
-        
-        .btn-secondary {
-            background-color: white;
-            color: var(--primary);
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 3rem;
-            color: var(--primary);
-        }
-        
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card {
+        .card {
             background: white;
             border-radius: 16px;
-            padding: 40px 30px;
+            padding: 35px 25px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: 0.3s;
         }
         
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .service-card h3 {
-            color: var(--primary);
-            margin: 20px 0 15px;
-            font-size: 1.5rem;
+        .card:hover {
+            transform: translateY(-8px);
         }
         
         .whatsapp-float {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 65px;
-            height: 65px;
-            background-color: #25D366;
+            bottom: 25px;
+            right: 25px;
+            background: #25D366;
             color: white;
+            width: 68px;
+            height: 68px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-            z-index: 2000;
+            font-size: 32px;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            z-index: 9999;
             text-decoration: none;
-            transition: all 0.3s;
         }
         
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-        
-        .menu {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 30px;
-        }
-        
-        .menu a {
-            padding: 12px 28px;
-            background: white;
-            color: var(--primary);
-            border: 2px solid var(--primary);
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            padding: 16px 40px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
         }
         
         footer {
-            background-color: #001f5e;
-            color: white;
+            background: #001f5e;
+            color: #ddd;
             text-align: center;
             padding: 60px 20px 30px;
-        }
-        
-        .atendimento-destaque {
-            background: linear-gradient(135deg, #00b140, #009933);
-            color: white;
-            padding: 50px 30px;
-            border-radius: 20px;
-            text-align: center;
-            margin: 40px 0;
         }
     </style>
 </head>
 <body>
+
     <!-- Header -->
     <header>
-        <div class="container nav">
-            <a href="#" class="logo">
-                <!-- Logo ARC4 (usando placeholder oficial se disponível) -->
-                <img src="https://www.arc4.com.br/_next/static/media/logo.6f5c5f8e.svg" alt="ARC4 Logo" onerror="this.src='https://via.placeholder.com/180x60/003087/ffffff?text=ARC4'; this.onerror=null;">
-                <span>ARC4</span>
-            </a>
+        <div class="nav">
+            <div class="logo">
+                <img src="https://www.arc4.com.br/_next/image?url=%2Flogo.png&w=384&q=75" 
+                     alt="ARC4 Gestão de Ativos" 
+                     onerror="this.src='https://via.placeholder.com/220x70/003087/ffffff?text=ARC4+Gestão+de+Ativos';">
+            </div>
             <nav>
-                <a href="#atendimento" style="color:white; margin:0 15px; text-decoration:none;">Atendimento</a>
-                <a href="#servicos" style="color:white; margin:0 15px; text-decoration:none;">Serviços</a>
-                <a href="#fale-conosco" style="color:white; margin:0 15px; text-decoration:none;">Contato</a>
+                <a href="#servicos" style="margin:0 15px; color:#003087; text-decoration:none; font-weight:500;">Serviços</a>
+                <a href="#contato" style="margin:0 15px; color:#003087; text-decoration:none; font-weight:500;">Contato</a>
             </nav>
         </div>
     </header>
 
     <!-- Hero -->
     <section class="hero">
-        <div class="container">
-            <h1>Bem-vindo à ARC4 Gestão de Ativos</h1>
-            <p>Soluções rápidas e seguras para renegociação de dívidas, emissão de 2ª via de boletos e atendimento especializado.</p>
-            <div>
-                <a href="https://wa.me/5516982249677" target="_blank" class="btn">Falar no WhatsApp</a>
-                <a href="#servicos" class="btn btn-secondary">Nossos Serviços</a>
-            </div>
-        </div>
+        <h1>ARC4 Gestão de Ativos S.A.</h1>
+        <p style="font-size:1.4rem; max-width:700px; margin:0 auto 30px;">
+            Atendimento especializado • 2ª via de boleto • Renegociação de dívidas
+        </p>
+        <a href="https://wa.me/5516982249677" target="_blank" class="btn-whatsapp">
+            💬 Falar no WhatsApp Agora
+        </a>
     </section>
 
-    <!-- Destaque Atendimento -->
-    <div class="container">
-        <div class="atendimento-destaque">
-            <h2>🔥 Atendimento Exclusivo via WhatsApp</h2>
-            <p style="font-size: 1.4rem; margin: 15px 0;">Estamos prontos para ajudar você!</p>
-            <a href="https://wa.me/5516982249677" target="_blank" style="background:white; color:#003087; padding:18px 40px; border-radius:50px; font-size:1.3rem; text-decoration:none; font-weight:700; display:inline-block;">
-                📲 +55 16 98224-9677
+    <!-- Destaque -->
+    <div style="background:#f8f9fa; padding:50px 20px; text-align:center;">
+        <h2 style="color:#003087; margin-bottom:15px;">🔴 Atendimento Exclusivo</h2>
+        <p style="font-size:1.5rem; font-weight:600; color:#00b140;">
+            <a href="https://wa.me/5516982249677" target="_blank" style="color:#00b140; text-decoration:none;">
+                +55 16 98224-9677
             </a>
-            <p style="margin-top:20px; opacity:0.95;">Resposta rápida • Segunda a Sexta • 8h às 20h</p>
-        </div>
+        </p>
+        <p>Segunda a Sexta • 8h às 20h</p>
     </div>
 
     <!-- Serviços -->
-    <section id="servicos" style="background:white;">
-        <div class="container">
-            <h2 class="section-title">Nossos Serviços</h2>
+    <section id="servicos" style="padding:80px 20px; background:white;">
+        <div style="max-width:1200px; margin:0 auto;">
+            <h2 style="text-align:center; font-size:2.3rem; margin-bottom:50px; color:#003087;">O que você precisa?</h2>
             
             <div class="services">
-                <!-- Atendimento -->
-                <div class="service-card">
-                    <div style="font-size:4rem; margin-bottom:10px;">📞</div>
-                    <h3>Atendimento</h3>
-                    <p>Suporte completo para tirar dúvidas sobre sua dívida, contratos e acordos.</p>
-                    <a href="https://wa.me/5516982249677" target="_blank" class="btn" style="margin-top:20px;">Iniciar Atendimento</a>
+                <div class="card">
+                    <h3 style="font-size:1.6rem; margin:20px 0; color:#003087;">📞 Atendimento</h3>
+                    <p>Tire dúvidas, consulte sua dívida e receba suporte completo.</p>
+                    <a href="https://wa.me/5516982249677" target="_blank" class="btn-whatsapp" style="margin-top:25px; font-size:1rem; padding:14px 30px;">Iniciar Atendimento</a>
                 </div>
                 
-                <!-- 2ª Via Boleto -->
-                <div class="service-card">
-                    <div style="font-size:4rem; margin-bottom:10px;">📄</div>
-                    <h3>2ª Via do Boleto</h3>
-                    <p>Emita a segunda via do seu boleto de forma rápida e segura.</p>
-                    <a href="https://wa.me/5516982249677?text=Quero%20a%202%C2%AA%20via%20do%20meu%20boleto" target="_blank" class="btn" style="margin-top:20px;">Solicitar 2ª Via</a>
+                <div class="card">
+                    <h3 style="font-size:1.6rem; margin:20px 0; color:#003087;">📄 2ª Via do Boleto</h3>
+                    <p>Emita a segunda via do seu boleto rapidamente.</p>
+                    <a href="https://wa.me/5516982249677?text=Quero%20a%202%C2%AA%20via%20do%20boleto" target="_blank" class="btn-whatsapp" style="margin-top:25px; font-size:1rem; padding:14px 30px;">Solicitar 2ª Via</a>
                 </div>
                 
-                <!-- Renegociar -->
-                <div class="service-card">
-                    <div style="font-size:4rem; margin-bottom:10px;">🤝</div>
-                    <h3>Renegociar Dívida</h3>
-                    <p>Condições especiais, descontos de até 99% e parcelamento facilitado.</p>
-                    <a href="https://wa.me/5516982249677?text=Quero%20renegociar%20minha%20d%C3%ADvida" target="_blank" class="btn" style="margin-top:20px;">Renegociar Agora</a>
+                <div class="card">
+                    <h3 style="font-size:1.6rem; margin:20px 0; color:#003087;">🤝 Renegociar Dívida</h3>
+                    <p>Descontos especiais e parcelamento facilitado.</p>
+                    <a href="https://wa.me/5516982249677?text=Quero%20renegociar%20minha%20d%C3%ADvida" target="_blank" class="btn-whatsapp" style="margin-top:25px; font-size:1rem; padding:14px 30px;">Renegociar Agora</a>
                 </div>
                 
-                <!-- Mensalidade em Atraso -->
-                <div class="service-card">
-                    <div style="font-size:4rem; margin-bottom:10px;">⏰</div>
-                    <h3>Mensalidade em Atraso</h3>
-                    <p>Regularize sua situação com as melhores condições do mercado.</p>
-                    <a href="https://wa.me/5516982249677?text=Minha%20mensalidade%20est%C3%A1%20em%20atraso" target="_blank" class="btn" style="margin-top:20px;">Regularizar</a>
+                <div class="card">
+                    <h3 style="font-size:1.6rem; margin:20px 0; color:#003087;">⏰ Mensalidade em Atraso</h3>
+                    <p>Regularize sua situação com as melhores condições.</p>
+                    <a href="https://wa.me/5516982249677?text=Minha%20mensalidade%20est%C3%A1%20em%20atraso" target="_blank" class="btn-whatsapp" style="margin-top:25px; font-size:1rem; padding:14px 30px;">Regularizar</a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Menu Rápido -->
-    <div class="container" style="text-align:center; padding:40px 20px; background:#f1f3f5;">
-        <h3 style="margin-bottom:25px; color:var(--primary);">Acesso Rápido</h3>
-        <div class="menu">
-            <a href="https://wa.me/5516982249677?text=Atendimento">📞 Atendimento</a>
-            <a href="https://wa.me/5516982249677?text=2%C2%AA%20via%20boleto">📄 2ª Via Boleto</a>
-            <a href="https://wa.me/5516982249677?text=Quero%20renegociar">🤝 Renegociar</a>
-            <a href="https://wa.me/5516982249677?text=Mensalidade%20em%20atraso">⏰ Regularizar Atraso</a>
-        </div>
-    </div>
-
-    <!-- Fale Conosco -->
-    <section id="fale-conosco" style="background:#f8f9fa;">
-        <div class="container">
-            <h2 class="section-title">Fale Conosco</h2>
-            <div style="max-width:700px; margin:0 auto; background:white; padding:50px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.1); text-align:center;">
-                <p style="font-size:1.3rem; margin-bottom:30px;">Nosso time está à disposição para ajudar você a resolver sua situação financeira da melhor forma.</p>
-                
-                <a href="https://wa.me/5516982249677" target="_blank" style="background:#25D366; color:white; padding:20px 50px; border-radius:50px; font-size:1.4rem; text-decoration:none; display:inline-flex; align-items:center; gap:12px; margin-bottom:20px;">
-                    <span style="font-size:2rem;">💬</span> 
-                    <span>Conversar no WhatsApp</span>
-                </a>
-                
-                <p><strong>WhatsApp:</strong> <a href="https://wa.me/5516982249677" target="_blank" style="color:#25D366;">+55 16 98224-9677</a></p>
-                <p style="margin-top:10px;">Horário de atendimento: Segunda a Sexta, das 08h às 20h</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <p style="font-size:1.1rem; margin-bottom:15px;">ARC4 Gestão de Ativos S.A.</p>
-            <p>CNPJ: 15.102.080/0001-63</p>
-            <p>© 2026 ARC4 Gestão de Ativos S.A. - Todos os direitos reservados.</p>
-            <p style="margin-top:30px; opacity:0.8; font-size:0.9rem;">
-                Este site é uma página de suporte e direcionamento. Para acessar o portal oficial, visite <a href="https://www.arc4.com.br/" target="_blank" style="color:#00b140;">www.arc4.com.br</a>
-            </p>
-        </div>
+        <p><strong>BIT SOCIEDADE DE CREDITO DIRETO S.A.</strong></p>
+        <p>CNPJ: 58.367.961/0001-19</p>
+        <p>© 2026 - Todos os direitos reservados</p>
+        <p style="margin-top:20px; font-size:0.9rem; opacity:0.8;">
+            Este é um canal de suporte. Portal oficial: <a href="https://www.arc4.com.br/" target="_blank" style="color:#00b140;">www.arc4.com.br</a>
+        </p>
     </footer>
 
     <!-- Botão Flutuante WhatsApp -->
@@ -330,24 +206,5 @@
         💬
     </a>
 
-    <script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                if (this.getAttribute('href').length > 1) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
-        });
-        
-        // Mensagem padrão no WhatsApp
-        console.log('%cSite ARC4 carregado com sucesso! 🚀', 'color: #003087; font-size: 16px;');
-    </script>
 </body>
 </html>
